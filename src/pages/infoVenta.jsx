@@ -1,25 +1,36 @@
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css'
+
 function InfoVenta() {
+  const notify = () => toast.success("Registro exitoso !");
   return <div>
+    <h1 className="breadCrumb">Modulo de ventas  Información ventas</h1>
     <form action="managerVenta" className = 'formulario'>
-      <label htmlFor="">Valor total venta: </label>
-      <input type="text" placeholder='Valor venta'/>
-      <label htmlFor="">Estado venta: </label>
-      <select name="estadoVenta" id="estadoVenta">
-        <option value="selectEstado">Elija un estado</option>
-        <option value="selectEstado">En proceso</option>
-        <option value="selectEstado">Canacelada</option>
-        <option value="selectEstado">Entregado</option>
-      </select>
-      <label htmlFor="">Fecha venta: </label>
-      <input type="text" placeholder='AAAA/MM/DD HH:MM:SS'/>
-      <label htmlFor="">Identificación cliente: </label>
-      <input type="text" placeholder='Identificación del cliente'/>
-      <label htmlFor="">Nombre cliente: </label>
-      <input type="text" placeholder='Nombre del cliente'/>
-      <label htmlFor="">Vendedor: </label>
-      <input type="text" placeholder='Nombre del vendedor'/>
-      <label htmlFor="">Agregar productos: </label>
-      <table>
+      <div className="formulariodiv">
+        <label htmlFor="">Valor total venta: </label>
+        <input type="text" placeholder='Valor venta'/>
+        <label htmlFor="">Estado venta: </label>
+        <select name="estadoVenta" id="estadoVenta">
+          <option value="selectEstado">Elija un estado</option>
+          <option value="selectEstado">En proceso</option>
+          <option value="selectEstado">Canacelada</option>
+          <option value="selectEstado">Entregado</option>
+        </select>
+        <label htmlFor="">Fecha venta: </label>
+        <input type="text" placeholder='AAAA/MM/DD HH:MM:SS'/>
+      </div>
+      <div className="formulariodiv">
+        <label htmlFor="">Identificación cliente: </label>
+        <input type="text" placeholder='Identificación del cliente'/>
+        <label htmlFor="">Nombre cliente: </label>
+        <input type="text" placeholder='Nombre del cliente'/>
+        <label htmlFor="">Vendedor: </label>
+        <input type="text" placeholder='Nombre del vendedor'/>
+      </div>          
+    </form>
+    <label htmlFor="" className="etiquetaAgregarProductoInfo">Agregar productos: </label>
+    <table className="table">
         <tr>
           <td>
             <select name="producto" id="producto">
@@ -52,12 +63,12 @@ function InfoVenta() {
           <td>20.000</td>
           <td><button className= 'botonEdit botonDelete'>Eliminar</button></td>
         </tr>
-      </table>
-    </form>
+    </table>
     <div className='ContenedorBotonesGuardar'>
-      <button className= 'botonEdit colorBotonEdit'>Guardar</button>
+      <button onClick={notify} className= 'botonEdit colorBotonEdit'>Guardar</button>
       <button className = 'botonEdit botonDelete'>Cancelar</button>
     </div>
+    <ToastContainer position="bottom-center" autoClose={3000}/>
   </div>;
 }
 
